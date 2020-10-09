@@ -1,0 +1,19 @@
+package dev.elektronika.meteoradar.model;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Data
+@Entity
+@Table(name = "device")
+@ToString
+@NoArgsConstructor
+public class Device extends BaseEntity{
+    String token;
+    String name;
+
+}

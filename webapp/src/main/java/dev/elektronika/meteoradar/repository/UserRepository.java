@@ -19,28 +19,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Modifying
     @Query("update User set status = :status, updated = CURRENT_TIMESTAMP where token = :token")
-    public void updateStatusByToken(String token, State status) ;
-
-    @Transactional
-    @Modifying
-    @Query("update User " +
-            "set age = :age, " +
-            "firstName = :firstName," +
-            "lastName = :lastName," +
-            "description = :description," +
-            "country = :country," +
-            "city = :city," +
-            "gender = :gender," +
-            "general_skill = :generalSkill," +
-            "education = :education," +
-            "native_language = :nativeLanguage," +
-            "link_img = :linkImg," +
-            "updated = CURRENT_TIMESTAMP " +
-            "where email = :email")
-    public void updateByEmail(String email, Integer age, String firstName, String lastName,
-                           String description, String country, String city, String gender,
-                           String generalSkill, String education, String nativeLanguage,
-                           String linkImg);
-
-
+    public void updateStatusByToken(String token, State status);
 }

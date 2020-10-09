@@ -47,10 +47,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/css/**","/img/**","/fonts/**","/js/**","/scss/**","/token/**").permitAll() //todo add redirect
-                .antMatchers("/comp/**","/user/**", "/").hasRole("ADMIN")
+                .antMatchers().hasRole("ADMIN")
                 .antMatchers("/signIn", "/signUp").anonymous()
-                .antMatchers("/**").authenticated()
-                .antMatchers("/create_blog").authenticated();
+                .antMatchers("/**").authenticated();
 
     }
 }
