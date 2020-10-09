@@ -5,6 +5,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -29,12 +30,16 @@ public class User extends BaseEntity{
     @Column(name = "token", length = 501)
     private String token;
 
+    @OneToMany
+    List<Device> devices;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
     joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
     inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     @Fetch(value = FetchMode.SELECT)
     private Set<Role> roles;
+
 
     @Transient
     private  String roleFromForm;

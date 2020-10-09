@@ -32,9 +32,9 @@ public class ProfileController {
     }
 
     @PostMapping("/details/")
-    String updateDetails(String text, Authentication authentication){
+    String updateDetails(String text, Authentication authentication) {
         User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
-        if (clientUser!=null){
+        if (clientUser != null) {
             clientUser.setDescription(text);
             userService.add(clientUser);
             return "redirect:/user/" + clientUser.getId();
