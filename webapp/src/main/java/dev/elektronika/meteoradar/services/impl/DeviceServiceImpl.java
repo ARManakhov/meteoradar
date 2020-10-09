@@ -18,8 +18,16 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
-    public Device newDevice(User owner) {
-        return null;
+    public Device newDevice(User owner, String name) {
+        Device device = Device.builder().name(name).owner(owner).build();
+        generateToken(device);
+        saveDevice(device);
+        return device;
+    }
+
+    private void generateToken(Device device){
+        //todo generate
+
     }
 
     @Override

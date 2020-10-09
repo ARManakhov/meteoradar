@@ -50,5 +50,6 @@ public class DeviceController {
         if (clientUser != null && device.isPresent() && clientUser.getId().equals(device.get().getId())) {
             deviceService.deleteDevice(device.get());
         }
+        return "redirect:/profile/" + clientUser.getId();
     }
 }

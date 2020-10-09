@@ -1,5 +1,6 @@
 package dev.elektronika.meteoradar.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -16,6 +17,7 @@ import java.util.List;
 @Table(name = "device")
 @ToString
 @NoArgsConstructor
+@Builder
 public class Device extends BaseEntity{
     String token;
     String name;
