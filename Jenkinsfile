@@ -43,7 +43,7 @@ pipeline {
         stage('Start server'){
             steps{
                 //sh 'echo test'
-                sh 'DOCKER_HOST=unix:///var/run/host-docker.sock docker run --restart unless-stopped --name meteoradar_webapp --detach --volume /home/appholder/uploads:/home/uploads --volume /home/appholder/keys/keystore.p12:/home/keys/keystore.p12 --network jenkins -p 443:443 -p 80:80  -u root -t springio/gs-spring-boot-docker'
+                sh 'DOCKER_HOST=unix:///var/run/host-docker.sock docker run --restart unless-stopped --name meteoradar_webapp --detach --volume /home/appholder/uploads:/home/uploads --volume /home/appholder/keys/keystore.p12:/home/keys/keystore.p12 --network jenkins -p 443:443 -p 80:8080  -u root -t springio/gs-spring-boot-docker'
             }
         }
     }
