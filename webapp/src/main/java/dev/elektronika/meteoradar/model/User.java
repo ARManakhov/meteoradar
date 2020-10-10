@@ -5,6 +5,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -14,14 +15,8 @@ import java.util.Set;
 @NoArgsConstructor
 public class User extends BaseEntity{
 
-    @Column(name = "age")
-    private Integer age;
-
-    @Column(name = "firstName")
-    private String firstName;
-
-    @Column(name = "lastName")
-    private String lastName;
+    @Column(name = "nickname")
+    private String nickname;
 
     @Column(name = "email")
     private String email;
@@ -32,29 +27,11 @@ public class User extends BaseEntity{
     @Column(name = "description", length = 3000)
     private String description;
 
-    @Column(name = "country")
-    private String country;
-
-    @Column(name = "city")
-    private String city;
-
-    @Column(name = "gender")
-    private String gender;
-
     @Column(name = "token", length = 501)
     private String token;
 
-    @Column(name = "general_skill")
-    private String general_skill;
-
-    @Column(name = "education")
-    private String education;
-
-    @Column(name = "native_language")
-    private String native_language;
-
-    @Column(name = "link_img")
-    private String link_img;
+    @OneToMany(mappedBy = "owner")
+    List<Device> devices;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
@@ -62,6 +39,7 @@ public class User extends BaseEntity{
     inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     @Fetch(value = FetchMode.SELECT)
     private Set<Role> roles;
+
 
     @Transient
     private  String roleFromForm;
