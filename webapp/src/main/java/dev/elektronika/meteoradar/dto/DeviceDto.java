@@ -13,5 +13,7 @@ import java.util.List;
 @Builder
 public class DeviceDto{
     Long id;
+    Float gpsX;
+    Float gpsY;
     List<SensorDto> sensors;
 }

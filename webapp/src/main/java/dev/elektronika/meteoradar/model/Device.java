@@ -24,4 +24,7 @@ public class Device extends BaseEntity{
     @OneToMany(mappedBy = "device")
     List<Sensor> sensors;
     String description;
+    Float gpsX;
+    Float gpsY;
+
 }

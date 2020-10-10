@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class ApiDeviceInit extends ApiRequestDto{
-    Long gpsX;
-    Long gpsY;
+    Float gpsX;
+    Float gpsY;
     List<SensorDto> sensors;
 }

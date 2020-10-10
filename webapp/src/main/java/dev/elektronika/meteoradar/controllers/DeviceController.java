@@ -27,7 +27,7 @@ public class DeviceController {
     String newDevice(Authentication authentication, String name) {
         User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         if (clientUser != null) {
-            Device device = deviceService.newDevice(clientUser,name);
+            Device device = deviceService.newDevice(clientUser, name);
             return "redirect:/device/" + device.getId();
         }
         return "redirect:signIn";
@@ -55,7 +55,7 @@ public class DeviceController {
     }
 
     @PostMapping("/device-description/{id}")
-    String updateDetails(Long id, String text, Authentication authentication) {
+    String updateDetails(@PathVariable Long id, String text, Authentication authentication) {
         User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         Optional<Device> deviceOptional = deviceService.getDevice(id);
         if (deviceOptional.isPresent()) {
@@ -69,5 +69,20 @@ public class DeviceController {
         return "redirect:404";
     }
 
+    @PostMapping("/device-gps/{id}")
+    String updateGps(@PathVariable Long id, Float gpsX, Float gpsY, Authentication authentication) {
+        User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
+        Optional<Device> deviceOptional = deviceService.getDevice(id);
+        if (deviceOptional.isPresent()) {
+            Device device = deviceOptional.get();
+            if (clientUser != null && device.getId().equals(clientUser.getId())) {
+                device.setGpsX(gpsX);
+                device.setGpsY(gpsY);
+                deviceService.saveDevice(device);
+                return "redirect:/device/" + device.getId();
+            }
+        }
+        return "redirect:404";
+    }
 
 }
