@@ -31,7 +31,17 @@ public class ProfileController {
         } else return "redirect:404";
     }
 
-    @PostMapping("/details/")
+    @GetMapping("/profile")
+    String getUserPage(Authentication authentication) {
+        User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
+        if (clientUser != null){
+            return "redirect:/user/"+clientUser.getId();
+        }
+        return "redirect:/signIn";
+    }
+
+
+        @PostMapping("/details/")
     String updateDetails(String text, Authentication authentication) {
         User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         if (clientUser != null) {
