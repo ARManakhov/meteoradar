@@ -9,7 +9,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card mt-3">
             <header class="card-header">
                 <h4 class="card-title mt-2">Registration</h4>
             </header>

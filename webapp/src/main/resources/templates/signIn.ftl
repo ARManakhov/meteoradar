@@ -10,7 +10,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card mt-3">
             <header class="card-header">
                 <h4 class="card-title mt-2">Вход</h4>
             </header>
@@ -35,7 +35,8 @@
                     </div>
                 </form>
             </article>
-            <div class="border-top card-body text-center">Don't have an account ? <a href="/signUp">Registration</a></div>
+            <div class="border-top card-body text-center">Don't have an account ? <a href="/signUp">Registration</a>
+            </div>
         </div>
     </div>
 </div>
