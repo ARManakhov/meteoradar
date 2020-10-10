@@ -11,7 +11,6 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "users")
-@ToString
 @NoArgsConstructor
 public class User extends BaseEntity{
 
