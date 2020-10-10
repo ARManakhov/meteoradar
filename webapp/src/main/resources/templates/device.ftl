@@ -3,6 +3,9 @@
 <head>
     <title>device ${device.name}</title>
     <#include "head.ftl">
+    <link rel="stylesheet" href="/css/device.css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
+
 </head>
 <body>
 <#include "navbar.ftl">
@@ -29,6 +32,16 @@
                 </#if>
             </article>
         </div>
+
+        <div class="card mt-3">
+            <header class="card-header">
+                <h4 class="card-title mt-2">On map ${device.name}</h4>
+            </header>
+            <article class="card-body">
+                <div id="map" class="map"></div>
+            </article>
+        </div>
+
         <div class="card mt-3">
             <header class="card-header">
                 <h4 class="card-title mt-2">Sensors</h4>
@@ -51,5 +64,19 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([37.41, 8.82]),
+            zoom: 4
+        })
+    });
+</script>
 </body>
 </html>
