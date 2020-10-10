@@ -73,9 +73,16 @@
             })
         ],
         view: new ol.View({
-            center: ol.proj.fromLonLat([37.41, 8.82]),
+            center: ol.proj.fromLonLat([0, 0]),
             zoom: 4
         })
+    });
+    map.on('singleclick', function (evt) {
+        var coordinate = evt.coordinate;
+        var hdms = toStringHDMS(toLonLat(coordinate));
+
+        content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
+        overlay.setPosition(coordinate);
     });
 </script>
 </body>
