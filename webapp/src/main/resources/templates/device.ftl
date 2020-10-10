@@ -43,8 +43,7 @@
                         <article class="card-body">
                             <div class="row mt-3">value : ${sensor.value}</div>
                             <div class="row mt-3">unit : ${sensor.unit}</div>
-                            <#--                            <div class="row mt-3">type : ${sensor.type}</div>-->
-
+                            <div class="row mt-3">type : ${sensor.sensorType}</div>
                         </article>
                     </div>
                 </#list>
