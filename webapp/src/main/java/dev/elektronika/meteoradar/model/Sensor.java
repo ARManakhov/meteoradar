@@ -6,6 +6,7 @@ import lombok.ToString;
 import lombok.Value;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.HashMap;
 
@@ -18,4 +19,6 @@ public class Sensor extends BaseEntity {
     String name;
     Float value;
     String unit;
+    @ManyToOne
+    Device device;
 }

@@ -24,10 +24,11 @@ public class DeviceController {
     }
 
     @PostMapping("/device/")
-    String newDevice(Authentication authentication) {
+    String newDevice(Authentication authentication, String name) {
         User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         if (clientUser != null) {
-            deviceService.newDevice(clientUser);
+            Device device = deviceService.newDevice(clientUser,name);
+            return "redirect:/device/" + device.getId();
         }
         return "redirect:signIn";
     }
@@ -35,12 +36,12 @@ public class DeviceController {
     @GetMapping("/device/{id}")
     String getDevice(@PathVariable Long id, Map<String, Object> model, Authentication authentication) {
         Optional<Device> deviceOptional = deviceService.getDevice(id);
-        if (deviceOptional.isPresent()){
+        if (deviceOptional.isPresent()) {
             User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
             model.put("client_user", clientUser);
             model.put("device", deviceOptional.get());
             return "device";
-        }else return "redirect:404";
+        } else return "redirect:404";
     }
 
     @DeleteMapping("/device/{id}")
@@ -51,5 +52,20 @@ public class DeviceController {
             deviceService.deleteDevice(device.get());
         }
         return "redirect:/profile/" + clientUser.getId();
+    }
+
+    @PostMapping("/device-description/{id}")
+    String updateDetails(Long id, String text, Authentication authentication) {
+        User clientUser = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
+        Optional<Device> deviceOptional = deviceService.getDevice(id);
+        if (deviceOptional.isPresent()) {
+            Device device = deviceOptional.get();
+            if (clientUser != null && device.getId().equals(clientUser.getId())) {
+                device.setDescription(text);
+                deviceService.saveDevice(device);
+                return "redirect:/device/" + device.getId();
+            }
+        }
+        return "redirect:404";
     }
 }

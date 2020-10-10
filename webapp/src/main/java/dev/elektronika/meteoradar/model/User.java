@@ -30,7 +30,7 @@ public class User extends BaseEntity{
     @Column(name = "token", length = 501)
     private String token;
 
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     List<Device> devices;
 
     @ManyToMany(fetch = FetchType.EAGER)

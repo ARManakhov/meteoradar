@@ -21,6 +21,18 @@
 </#if>
 
 <div>devices:</div>
-<button>New Device</button>
+<#list profile_owner.devices as device>
+    <div>Device : ${device.name}</div>
+    <div>Description : <#if device.description??>${device.description}</#if></div>
+    <#if profile_owner.id == client_user.id || client_user.role=="ADMIN">
+        <div>Token : ${device.token}</div>
+    </#if>
+    <div><a href="/device/${device.id}">more info</a></div>
+</#list>
+New device:
+<form action="/device/" method="post">
+    <input name="name">
+    <button>make</button>
+</form>
 </body>
 </html>
