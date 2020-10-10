@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void register(User user) {
-        registrationProcess(user, "ROLE_USER", "NOT_ACTIVE");
+        registrationProcess(user, "ROLE_USER", "ACTIVE");
         User registeredUser = userRepository.save(user);
         log.info("IN register - user: {} successfully registered", registeredUser);
     }

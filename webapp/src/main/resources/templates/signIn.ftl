@@ -12,7 +12,7 @@
     <div class="col-md-6">
         <div class="card mt-3">
             <header class="card-header">
-                <h4 class="card-title mt-2">Вход</h4>
+                <h4 class="card-title mt-2">Login</h4>
             </header>
             <article class="card-body">
                 <form method="post" action="/signIn">

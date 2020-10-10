@@ -14,7 +14,7 @@
                 <h4 class="card-title mt-2">Registration</h4>
             </header>
             <article class="card-body">
-                <form method="post" action="/sign_up">
+                <form method="post" action="/signUp">
                     <div class="form-row">
                         <div class="col form-group">
                             <label>Login</label>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col form-group">
                             <label>Repeat password</label>
-                            <input type="password" name="rePassword" class="form-control" placeholder=" ">
+                            <input type="password" name="rePassword" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -40,7 +40,7 @@
                     </div>
                 </form>
             </article>
-            <div class="border-top card-body text-center">Already have an account? <a href="/sign_in">Login</a></div>
+            <div class="border-top card-body text-center">Already have an account? <a href="/signIn">Login</a></div>
         </div>
     </div>
 </div>
