@@ -19,7 +19,7 @@
                 <#if device.owner.id == client_user.id || client_user.role=="ADMIN">
                     <div class="row mt-3">Token : ${device.token}</div>
                     <div class="row mt-3">Description :
-                        <form method="post" action="/device-details/${device.id}">
+                        <form method="post" action="/device-description/${device.id}">
                             <input value="<#if device.description??>${device.description}</#if>" name="text">
                             <button>Update</button>
                         </form>

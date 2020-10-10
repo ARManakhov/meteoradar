@@ -68,4 +68,6 @@ public class DeviceController {
         }
         return "redirect:404";
     }
+
+
 }
