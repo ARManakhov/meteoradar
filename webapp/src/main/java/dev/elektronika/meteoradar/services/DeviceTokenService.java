@@ -1,4 +1,4 @@
-package dev.elektronika.meteoradar.services.impl;
+package dev.elektronika.meteoradar.services;
 
 import dev.elektronika.meteoradar.model.Device;
 

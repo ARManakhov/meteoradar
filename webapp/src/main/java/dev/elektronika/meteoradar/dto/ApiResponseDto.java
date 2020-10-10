@@ -1,4 +1,15 @@
 package dev.elektronika.meteoradar.dto;
 
-public class ApiResponseDto {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+public class ApiResponseDto<T> {
+    String status;
+    T payload;
 }

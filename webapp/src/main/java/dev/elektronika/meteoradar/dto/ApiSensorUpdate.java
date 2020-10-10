@@ -11,7 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DeviceDto{
-    Long id;
-    List<SensorDto> sensors;
+public class ApiSensorUpdate extends ApiRequestDto{
+    SensorDto sensor;
 }

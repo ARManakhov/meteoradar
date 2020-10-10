@@ -6,6 +6,7 @@ import dev.elektronika.meteoradar.model.User;
 import java.util.Optional;
 
 public interface DeviceService {
+    Optional<Device> getDeviceByToken(String token);
 
     Device newDevice(User owner, String name);
 

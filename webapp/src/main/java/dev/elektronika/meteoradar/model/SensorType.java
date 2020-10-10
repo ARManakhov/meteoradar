@@ -1,4 +1,5 @@
 package dev.elektronika.meteoradar.model;
 
-public class SensorType {
+public enum SensorType{
+    TEMP, HUMIDITY
 }
