@@ -39,14 +39,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/signIn")
                 .loginProcessingUrl("/signIn")
                 .usernameParameter("email")
-                .defaultSuccessUrl("/blog");
+                .defaultSuccessUrl("/");
 
         http.logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/signIn");
 
         http.authorizeRequests()
-                .antMatchers("/css/**","/img/**","/fonts/**","/js/**","/scss/**","/token/**").permitAll() //todo add redirect
+                .antMatchers("/","/css/**","/img/**","/fonts/**","/js/**","/scss/**","/token/**").permitAll() //todo add redirect
                 .antMatchers().hasRole("ADMIN")
                 .antMatchers("/signIn", "/signUp").anonymous()
                 .antMatchers("/**").authenticated();
